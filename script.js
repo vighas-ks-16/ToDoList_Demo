@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const addTaskButton = document.getElementById("add-task-btn");
   const todoList = document.getElementById("todo-list");
 
+  
+
 
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
