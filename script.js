@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const todoInput = document.getElementById("todo-input");
-  const addTaskButton = document.getElementById("add-task-btn");
-  const todoList = document.getElementById("todo-list");
 
-  
+  const addTaskButton = document.getElementById("add-task-btn");
+
+  const todoList = document.getElementById("todo-list");
 
 
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -14,9 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   addTaskButton.addEventListener("click", () => {
     const taskText = todoInput.value.trim();//takes input from <input> tag in html|.trim() removes whitespaces from either ends 
     if (taskText === "") return; //if input is empty it does nothing
-
-
-    
+   
     const newTask = {
       id: Date.now(),
       text: taskText,
@@ -38,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span>${task.text}</span>
         <button>delete</button>
     `;
+    
     li.addEventListener("click", (e) => {
       if (e.target.tagName === "BUTTON") return;
       task.completed = !task.completed;
