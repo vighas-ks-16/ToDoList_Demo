@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const todoList = document.getElementById("todo-list");
 
-
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
   tasks.forEach((task) => renderTask(task));
@@ -21,12 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
       completed: false,
     }; //adding id and completed to the added task 
 
+
+
+
     tasks.push(newTask); //pushing into array
     saveTasks(); //saves the changes made in array to local storage
     renderTask(newTask);
     todoInput.value = ""; //clear input
     console.log(tasks);
   });
+
+  
 
   function renderTask(task) {
     const li = document.createElement("li");
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span>${task.text}</span>
         <button>delete</button>
     `;
-    
+
     li.addEventListener("click", (e) => {
       if (e.target.tagName === "BUTTON") return;
       task.completed = !task.completed;
